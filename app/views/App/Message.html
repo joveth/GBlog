@@ -1,0 +1,80 @@
+{{set . "title" "Message - GBlog"}}
+{{set . "mess" "active" }}
+{{template "header.html" .}}
+<div class="content">
+    <div class="comment-nav">
+       <div class="comment-title">
+         留言板
+         <span style="float:right" title="Total messages">[{{len .messages}}]</span>
+       </div>
+       <div class="comment-cell">
+         <div class="comment-inputbox">
+            <form action="/putmessage" method="post" >
+                  <ul class="comment-input-infor">
+                    {{with $field := field "message.Email" .}}
+                    <li>
+                      EMAIL
+                      <input type="email"  id="{{$field.Id}}" name="{{$field.Name}}" class="form-control " required value="{{if $field.Error}}{{$field.Error}}{{else}}{{$field.Value}}{{end}}"/>
+                    </li>
+                     {{end}}
+                    <li>
+                      QQ
+                      {{with $field := field "message.QQ" .}}
+                      <input type="text"  id="{{$field.Id}}" name="{{$field.Name}}" class="form-control" value="{{if $field.Error}}{{$field.Error}}{{else}}{{$field.Value}}{{end}}" />
+                      {{end}}
+                    </li>
+                    <li>
+                      个人主页
+                      {{with $field := field "message.Url" .}}
+                      <input type="text"  id="{{$field.Id}}" name="{{$field.Name}}" class="form-control" placeholder="Don't with http://  " value="{{if $field.Error}}{{$field.Error}}{{else}}{{$field.Value}}{{end}}"/>
+                      {{end}}
+                    </li>
+                  </ul>
+                  <div class="comment-input-text">
+                    MESSAGE
+                    <div>
+                      {{with $field := field "message.Content" .}}
+                      <textarea class="form-control ctextarea" id="{{$field.Id}}" name="{{$field.Name}}" required>{{if $field.Error}}{{$field.Error}}{{else}}{{$field.Value}}{{end}}</textarea>
+                      {{end}}
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-success comment-input-text-btn">SUBMIT</button>
+            </form>
+         </div>
+       </div>
+       <div class="comment-cell">
+         <pre ><code><span class="func-color">func</span><span class="func-name"> UserMessage</span><span class="pln">() </span><span class="pun">{</span><span class="pln">
+    </span><span class="func-color">var</span><span class="pun"> </span><span class="pln">email </span><span class="func-type">string </span><span class="pun">=</span><span class="pln"> </span><span class="func-str">"jov123@163.com"</span><span class="pun">;</span><span class="pln-w">
+    </span><span class="func-color">var</span><span class="pln-w"> </span><span class="pln">url </span><span class="pln">=</span><span class="pln-w"> </span><a href="http://jov.herokuapp.com" class="func-str" target="_blank">http://jov.herokuapp.com</a><span class="pln-w">;</span><span class="pln">
+    </span><span class="lit">Date </span><span class="func-color">:=</span><span class="pln"> </span><span class="func-str">"2014-04-15 12:50"</span><span class="pun">;</span><span class="pln">
+    </span><span class="func-color">var </span><span class="lit">Message</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="func-str">"nice!"</span><span class="pln">;
+</span><span class="pun">}</span><span class="pln">
+</code></pre>
+       </div>
+        <div class="comment-cell">
+         <pre style="background:#2d2d2d;"><code><span class="func-color">func</span><span class="func-name"> UserMessage</span><span class="pln-w">() </span><span class="pln-w">{</span><span class="pln-w">
+    </span><span class="func-color">var</span><span class="pln-w"> </span><span class="pln-w">email </span><span class="func-type">string </span><span class="pln-w">=</span><span class="pln-w"> </span><span class="func-str">"jov123@163.com"</span><span class="pln-w">;</span><span class="pln-w">
+    </span><span class="func-color">var</span><span class="pln-w"> </span><span class="pln-w">url </span><span class="pln-w">=</span><span class="pln-w"> </span><a href="http://jov.herokuapp.com" class="func-str" target="_blank">http://jov.herokuapp.com</a><span class="pln-w">;</span><span class="pln-w">
+    </span><span class="pln-w">Date </span><span class="func-color">:=</span><span class="pln-w"> </span><span class="func-str">"2014-04-15 12:50"</span><span class="pln-w">;</span><span class="pln-w">
+    </span><span class="func-color">var </span><span class="pln-w">Message</span><span class="pln-w"> </span><span class="pln-w">=</span><span class="pln-w"> </span><span class="func-str">"nice!"</span><span class="pln-w">;
+</span><span class="pln-w">}</span><span class="pln-w">
+</code></pre>
+       </div>
+       
+       {{if .messages}}
+       {{range $message:=.messages}}
+       <div class="comment-cell">
+         <pre style="background:#2d2d2d;"><code><span class="func-color">func</span><span class="func-name"> UserMessage</span><span class="pln-w">() </span><span class="pln-w">{</span><span class="pln-w">
+    </span><span class="func-color">var</span><span class="pln-w"> </span><span class="pln-w">email </span><span class="func-type">string </span><span class="pln-w">=</span><span class="pln-w"> </span><span class="func-str">"{{$message.Email}}"</span><span class="pln-w">;</span>{{if $message.QQ}}<span class="pln-w">
+    </span><span class="func-color">var</span><span class="pln-w"> </span><span class="pln-w">url </span><span class="pln-w">=</span><span class="pln-w"> </span><span class="func-str" >{{$message.QQ}}</span><span class="pln-w">;</span>{{end}}{{if $message.Url}}<span class="pln-w">
+    </span><span class="func-color">var</span><span class="pln-w"> </span><span class="pln-w">url </span><span class="pln-w">=</span><span class="pln-w"> </span><a href="http://{{$message.Url}}" class="func-str" target="_blank">http://{{$message.Url}}</a><span class="pln-w">;</span>{{end}}<span class="pln-w">
+    </span><span class="pln-w">Date </span><span class="func-color">:=</span><span class="pln-w"> </span><span class="func-str">"{{$message.CDate.Format "2006-01-02 15:04"}}"</span><span class="pln-w">;</span><span class="pln-w">
+    </span><span class="func-color">var </span><span class="pln-w">Message</span><span class="pln-w"> </span><span class="pln-w">=</span><span class="pln-w"> </span><span class="func-str">"{{$message.Content}}"</span><span class="pln-w">;
+</span><span class="pln-w">}</span><span class="pln-w">
+</code></pre>
+       </div>
+       {{end}}
+       {{end}}
+  </div>
+</div>
+{{template "footer.html" .}}

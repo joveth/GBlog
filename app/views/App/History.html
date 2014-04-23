@@ -1,0 +1,44 @@
+{{set . "title" "History blogs - GBlog"}}
+{{set . "history" "active" }}
+{{template "header.html" .}}
+<div class="content">
+    <div class="history-nav" id="his">
+       <div class="history-title">
+         博客归档
+       </div>
+       <div class="history-cell">
+          <div class="panel-heading" style="padding:0;border-bottom: 1px dashed #ccc;">
+            <a data-toggle="collapse" data-toggle="collapse" data-parent="#his" href="#collapseOne">2014</a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body" style="padding:0 20px;">
+              <ul style="padding:10px 10px;list-style:none;">
+                <li><time>2014-04-01</time><a href="#">Abourt the application</a><span class="history-auth">By jov</span></li>
+                <li><time>2014-04-01</time><a href="#">Abourt the application</a></li>
+              </ul>
+            </div>
+          </div>
+       </div>
+       {{if .historys}}
+       {{range $index,$history :=.historys}}
+       <div class="history-cell">
+          <div class="panel-heading" style="padding:0;border-bottom: 1px dashed #ccc;">
+            <a data-toggle="collapse" data-toggle="collapse" data-parent="#his" href="#collapseOne{{$index}}">{{$history.Year}}</a>
+          </div>
+          <div id="collapseOne{{$index}}" class="panel-collapse collapse in">
+            <div class="panel-body" style="padding:0 20px;">
+              <ul style="padding:10px 10px;list-style:none;">
+                {{if $history.Blogs }}
+                {{range $blog :=$history.Blogs}}
+                <li><time>{{$blog.CDate.Format "2006-01-02"}}</time><a href="#">{{if $blog.ShortTitle}}{{$blog.ShortTitle}}...{{else}}{{$blog.Title}}{{end}}</a><span class="history-auth">By {{$blog.Email}}</span></li>
+                {{end}}
+                {{end}}
+              </ul>
+            </div>
+          </div>
+       </div>
+       {{end}}
+       {{end}}
+    </div>
+</div>
+{{template "footer.html" .}}

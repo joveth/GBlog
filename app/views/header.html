@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>{{.title}}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/styles.css">
+    <link rel="shortcut icon" type="image/png" href="/public/img/fav.png">
+    <script src="/public/js/jquery-2.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/public/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    {{range .moreStyles}}
+      <link rel="stylesheet" type="text/css" href="/public/{{.}}">
+    {{end}}
+    {{range .moreScripts}}
+      <script src="/public/{{.}}" type="text/javascript" charset="utf-8"></script>
+    {{end}}
+  </head>
+  <body>
+    <div class="container main-nav">
+    <div class="top-bar">
+        <div class="top-bar-inner">
+          <ul class="ul-nav ">
+              <li class="{{.home}}">
+                <a href="/" >Home</a>
+                {{if .recentCnt}}
+                {{if gt .recentCnt 0}}
+                <span class="navbar-news " title="最近1小时有{{.recentCnt}}个更新">{{.recentCnt}}</span>
+                {{end}}
+                {{end}}
+              </li>
+              <li class="{{.write}}">
+                <a href="/write" title="Put up your blogs">投稿</a>
+              </li>
+              <li class="{{.mess}}">
+                <a href="/message" title="Message Boards">留言</a>
+              </li>
+              <li class="{{.history}}">
+                <a href="/history" title="History blogs">归档</a>
+              </li>
+              <li class="{{.about}}">
+                <a href="/about" title="About Me">About Me</a>
+              </li>
+              <li class="{{.ema}}">
+                <a href="/email" title="The emails of the blog's author">Email</a>
+              </li>
+              <li>
+                <a href="#" title="">RSS</a>
+              </li>
+          </ul>
+        </div>
+    </div>

@@ -1,0 +1,60 @@
+{{set . "title" "Home - GBlog" }}
+{{set . "home" "active" }}
+{{template "header.html" .}}
+<div class="content">
+    <div class="cell">
+      <div class="cell-subject">
+          <div>
+            <a href="#" class="cell-subject-title" ><strang>Test size=45</strang></a>
+            <a href="#" class="comment-num" title="Comments">10</a>
+          </div>
+          <div class="subject-infor">
+            <span class="label label-success">Author</span> &nbsp;&nbsp;<span>jov123@163.com</span>&nbsp;&nbsp;
+            <span class="label label-default">Date</span>&nbsp;&nbsp;2014-04-15 12:25&nbsp;&nbsp;
+            <span class="label label-info">Read</span>&nbsp;&nbsp;0
+          </div>
+      </div>
+      <div class="cell-text">
+          <pre><code>怎么说呢，稍微有点迷茫，不管是id</code></pre>
+      </div>
+    </div>
+    <div class="cell">
+      <div class="cell-subject">
+          <div>
+            <a href="#" class="cell-subject-title"><strang>This is a new Blog</strang></a>
+            <a href="#" class="comment-num" title="Comments">1</a>
+          </div>
+          <div class="subject-infor">
+            <span class="label label-success">Author</span> &nbsp;&nbsp;<span>jov123@163.com</span>&nbsp;&nbsp;
+            <span class="label label-default">Date</span>&nbsp;&nbsp;2014-04-15 12:25&nbsp;&nbsp;
+            <span class="label label-info">Read</span>&nbsp;&nbsp;0
+          </div>
+      </div>
+      <div class="cell-text">
+          <pre><code>怎么说呢，稍微有点迷茫，不管是ideas还是ominds，都不知所措了，是不是缺少了点什么？果然是的，连我自己都能感觉到，那么，缺什么呢？想不出来，需要自己去想一想了。唉，还真是讽刺啊，当初言之拳拳，如今拖沓连连，对不起很多人～～～，写的东西也没有人看，真是失败，加上也很忙了，本来那一点点信心，都被摧残的所剩无几。但归根结底，还是自己的问题，耐心还是不足，这是做人的问题。</code></pre>
+      </div>
+    </div>
+    {{if .blogs}}
+    {{range $blog := .blogs}}
+     <div class="cell">
+      <div class="cell-subject">
+          <div>
+            <a href="/bloginfor/{{$blog.Id.Hex}}/{{$blog.ReadCnt}}" class="cell-subject-title" title="{{$blog.Title}}"><strang>{{if $blog.ShortTitle}}{{$blog.ShortTitle}}...{{else}}{{$blog.Title}}{{end}}</strang></a>
+            <a href="#" class="comment-num" title="Comments">{{$blog.CommentCnt}}</a>
+          </div>
+          <div class="subject-infor">
+            <span class="label label-success">Author</span> &nbsp;&nbsp;<span>{{$blog.Email}}
+            </span>&nbsp;&nbsp;
+            <span class="label label-default">Date</span>&nbsp;&nbsp;{{$blog.CDate.Format "2006-01-02 15:04" }}&nbsp;&nbsp;
+            <span class="label label-info">Read</span>&nbsp;&nbsp;{{$blog.ReadCnt}}
+          </div>
+      </div>
+      <div class="cell-text">
+          <pre><code>{{if $blog.ShortSubject}}{{$blog.ShortSubject}}...{{else}}{{$blog.Subject}}{{end}}</code></pre>
+      </div>
+    </div>
+    {{end}}
+    {{end}}
+</div>
+
+{{template "footer.html" .}}

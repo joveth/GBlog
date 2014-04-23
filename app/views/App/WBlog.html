@@ -1,0 +1,32 @@
+{{set . "title" "投稿 - GBlog"}}
+{{set . "write" "active" }}
+{{template "header.html" .}}
+<div class="content">
+    <div class="write-nav">
+      <form action="/putblog" method="post" >
+          <div class="form-group" >
+            <label style="font-weight: bold;">Title</label>
+            {{with $field := field "blog.Title" .}}
+            <input type="text" id="{{$field.Id}}" name="{{$field.Name}}"  class="form-control" style="width:98%;min-height:28px;" required  value="{{if $field.Flash}}{{$field.Flash}}{{else}}{{$field.Value}}{{end}}">
+              <span class="help-inline erro">{{$field.Error}}</span>
+            {{end}}
+          </div>
+          <div class="form-group" >
+            <label style="font-weight: bold;">Author</label>
+            {{with $field := field "blog.Email" .}}
+            <input type="email" id="{{$field.Id}}" name="{{$field.Name}}" class="form-control" style="width:98%;min-height:28px;" placeholder="Enter your email" required value="{{if $field.Flash}}{{$field.Flash}}{{else}}{{$field.Value}}{{end}}">
+              <span class="help-inline erro">{{$field.Error}}</span>
+            {{end}}
+          </div>
+          <div class="form-group" >
+            <label style="font-weight: bold;">Subject</label>
+            {{with $field := field "blog.Subject" .}}
+            <textarea class="form-control" id="{{$field.Id}}" name="{{$field.Name}}"  style="width:98%;line-height: 22px;height: 350px;resize: vertical;" required >{{if $field.Flash}}{{$field.Flash}}{{else}}{{$field.Value}}{{end}}</textarea>
+              <span class="help-inline erro">{{$field.Error}}</span>
+            {{end}}
+          </div>
+         <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+    </div>
+</div>
+{{template "footer.html" .}}

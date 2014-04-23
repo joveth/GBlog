@@ -1,0 +1,69 @@
+{{set . "title" "Bloginfor - GBlog" }}
+{{set . "home" "active" }}
+{{template "header.html" .}}
+<div class="content">
+    {{if .blog}}
+    <div class="infor-content">
+        <div class="infor-header">
+          <h3>{{.blog.Title}}</h3>
+          <div class="subject-infor">
+            <span class="label label-success">Author</span> &nbsp;&nbsp;<span>{{.blog.Email}}</span>&nbsp;&nbsp;
+            <span class="label label-default">Date</span>&nbsp;&nbsp;{{.blog.CDate.Format "2006-01-02 15:04"}}&nbsp;&nbsp;
+            <span class="label label-info">Read</span>&nbsp;&nbsp;{{.blog.ReadCnt}}
+          </div>
+        </div>
+        <div class="infor-body">
+          {{.blog.Subject}}
+        </div>
+    </div>
+    {{if .comments}}
+    <div class="comments">
+        <span>回复</span>
+        <hr>
+        <dl class="the-comments">
+           {{range $index,$comment := .comments}}
+          <dd >
+            <span class="label label-default pull-right">#{{$index}}</span>
+            <div class="user-info">
+              <a href="#"><strong>{{$comment.Email}}</strong></a> •
+              {{$comment.CDate.Format "2006-01-02 15:04" }}
+            </div>
+            <div class="user-comment">
+              <p>{{$comment.Content}}</p>
+            </div>
+          </dd>
+          {{end}}
+        </dl>
+    </div>
+    {{end}}
+    <div class="comments">
+        <div class="comment-form">
+          <form action="/docomment" method="post">
+            <input type="hidden" name="id" value="{{.blog.Id.Hex}}">
+            <input type="hidden" name="rcnt" value="{{.rcnt}}">
+            <div class="form-group">
+              <label >Email</label>
+              {{with $field := field "comment.Email" .}}
+              <input type="email" class="form-control" id="{{$field.Id}}" name="{{$field.Name}}"  placeholder="Your email" required value="{{if $field.Flash}}{{$field.Flash}}{{else}}{{$field.Value}}{{end}}">
+              <span class="help-inline erro">{{$field.Error}}</span>
+              {{end}}
+            </div>
+            <div class="form-group">
+              <label >Comment</label>
+              {{with $field := field "comment.Content" .}}
+              <textarea class="form-control" id="{{$field.Id}}" name="{{$field.Name}}" rows="6" placeholder="Enter the comment" required >{{if $field.Flash}}{{$field.Flash}}{{else}}{{$field.Value}}{{end}}</textarea>
+              {{end}}
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-success">Submit</button>
+
+            </div>
+          </form>
+        </div>
+    </div>
+    {{else}}
+    No result!Hi man ,do you visit by the wrong url?
+    {{end}}
+</div>
+
+{{template "footer.html" .}}

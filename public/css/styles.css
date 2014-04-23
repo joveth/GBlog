@@ -1,0 +1,336 @@
+body{
+	margin: 0 auto;
+	padding: 0;
+	background: url('../img/section_bg.png');
+	font: 14px "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+	line-height: 20px;
+	letter-spacing: 0.02em;
+	color: #666;
+	background-attachment:fixed;
+}
+a{
+	color: #1abc9c;
+	text-decoration: none;
+	-webkit-transition: 0.25s;
+	-moz-transition: 0.25s;
+	-o-transition: 0.25s;
+	transition: 0.25s;
+	-webkit-backface-visibility: hidden;
+}
+.main-nav{
+	margin: 0 auto;
+	width: 692px;
+	padding:0;
+}
+.top-bar{
+	width:100%;
+	background: #34495e;
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	box-shadow:  0 2px rgba(0,0,0,0.075),0 0 6px #7aba7b;
+	-webkit-box-shadow:0 2px  rgba(0,0,0,0.075),0 0 6px #7aba7b;
+	-moz-box-shadow:0 2px  rgba(0,0,0,0.075),0 0 6px #7aba7b;
+	margin-bottom:28px;
+}
+.top-bar-inner{
+	min-height: 48px;
+	padding:0 4px;
+}
+.ul-nav{
+	position: relative;
+	left: 0;
+	display: block;
+	float: left;
+	margin: 0 10px 0 0;
+	list-style: none;
+	font-size: 18px;
+	padding:0;
+}
+.ul-nav>li {
+	position: relative;
+	float: left;
+	line-height: 20px;
+}
+.ul-nav>li>a{
+	padding: 14px 24px 17px;
+	text-decoration: none;
+	display: block;
+	color: white;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+}
+.ul-nav>li>a:hover,.ul-nav>li>a:focus{
+	color: #1abc9c;
+}
+.navbar-news {
+	background-color: #e74c3c;
+	border-radius: 30px;
+	color: white;
+	display: block;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 18px;
+	min-width: 8px;
+	padding: 0 5px;
+	position: absolute;
+	right: -7px;
+	text-align: center;
+	text-shadow: none;
+	top: 8px;
+	z-index: 10;
+}
+.ul-nav .active > a, .ul-nav .active > a:hover, .ul-nav .active > a:focus {
+  background-color: transparent;
+  color: #1abc9c;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none; 
+}
+.cell{
+	background-color:#1bc6a5;
+	color: #cff3ec;
+	font-size: 15px;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-o-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	padding: 18px 20px 0px 20px; 
+	margin-bottom: 30px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+
+}
+.cell-subject{
+	margin: 0;
+}
+.cell-subject-title{
+	color: #34495e;
+	font-size: 24px;
+	font-weight: 700;
+	text-decoration: none;
+}
+a.cell-subject-title:hover{
+	text-decoration: underline;
+}
+.subject-infor{
+	color:#34495e;
+	line-height: 19px;
+	padding: 2px 0;
+	font-size: 13px;
+	margin:2px 0;
+}
+.cell-text{
+	padding: 4px 0;
+	word-break: break-all;
+}
+.comment-num{
+	float:right;
+	border: 5px solid #d7dce0;
+	border-radius: 50px;
+	font-size: 14px;
+	line-height: 16px;
+	padding: 0 4px;
+	-webkit-transition: background 0.2s ease-out, border-color 0s ease-out, color 0.2s ease-out;
+	-moz-transition: background 0.2s ease-out, border-color 0s ease-out, color 0.2s ease-out;
+	-o-transition: background 0.2s ease-out, border-color 0s ease-out, color 0.2s ease-out;
+	transition: background 0.2s ease-out, border-color 0s ease-out, color 0.2s ease-out;
+	-webkit-backface-visibility: hidden;
+	background-color: white;
+	border-color: white;
+	border-width: 2px;
+	color: #BBB6B6;
+}
+.write-nav{
+	padding: 10px;
+	background-color: #f9f9f9;
+	border: 1px solid #e4e4e4;
+	border-radius: 5px;
+}
+.footer{
+	margin:20px 0 10px 0;
+	text-align: center;
+	min-height: 20px;
+}
+.comment-nav,.history-nav{
+	background-color: white;
+	border: 1px solid #DDD;
+	border-radius: 4px;
+}
+.comment-title,.history-title{
+	padding: 10px 20px;
+	border-bottom: 1px solid #e2e2e2;
+	font-size: 15px;
+	font-weight: bold;
+}
+.comment-cell{
+	padding: 10px 10px;
+	border-top: 2px solid #fff;
+	border-bottom: 1px solid #e2e2e2;
+}
+.comment-inputbox{
+	background-color: #E7E7D8;
+	border: 1px solid #d6d6c6;
+	padding:5px 10px;
+	border-radius: 8px;
+	height: 224px;
+
+}
+.comment-input-infor{
+	float: left;
+	width: 180px;
+	height: 200px;
+	display: inline;
+	overflow: hidden;
+	margin:5px 0  0 0;
+	list-style: none;
+	padding:0;
+}
+
+.comment-input-text{
+	float: left;
+	width: 458px;
+	height: 150px;
+	margin:5px 0  0 10px;
+}
+.ctextarea {
+	height: 142px !important;
+	resize: vertical;
+}
+.comment-input-text-btn{
+	float:right;
+	margin-top:20px;
+}
+.func-color{
+	color: #F70246;
+}
+.func-name{
+	color: #24C54B;
+}
+.func-str{
+	color:#C29916;
+}
+.func-type{
+	color:rgb(0, 173, 255);
+}
+.pln-w{
+	color:white;
+}
+.pln-b{
+	color:white;
+}
+.history-cell{
+	padding: 10px 20px;
+	border-top: 2px solid #fff;
+	border-bottom: 1px solid #e2e2e2;
+}
+li time{
+	margin-right: 8px;
+	font-size: 13px;
+}
+.history-auth{
+	padding-left: 8px;
+	color: #cfcfcf;
+	font-size: 13px;
+	font-family: 'Microsoft Yahei';
+}
+.email-other{
+	background-color: #f9f9f9;
+	border: 1px solid #e4e4e4;
+	border-radius: 5px;
+	padding: 5px 20px;
+	margin-bottom: 10px;
+}
+.email-title{
+	margin: 0 0 22px;
+	padding-top: 21px;
+	color: white;
+	font-family: 'Microsoft Yahei';
+}
+.email-nav ul{
+	list-style-type: none;
+	margin: 0 0 26px;
+	padding:0;
+}
+.email-nav ul li:first-child {
+	border-top: none;
+	padding-top: 1px;
+}
+.email-nav ul li {
+	border-top: 1px solid #1bc6a5;
+	line-height: 19px;
+	padding: 6px 0;
+}
+.email-tag{
+	border-radius: 4px;
+	background: #1abc9c;
+	color: white;
+	cursor: pointer;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	overflow: hidden;
+	padding: 6px 13px 6px 19px;
+	position: relative;
+	vertical-align: middle;
+	display: inline-block;
+	zoom: 1;
+	-webkit-transition: 0.14s linear;
+	-moz-transition: 0.14s linear;
+	-o-transition: 0.14s linear;
+	transition: 0.14s linear;
+	-webkit-backface-visibility: hidden;
+}
+.email-tag span{
+	color: white;
+	cursor: pointer;
+	zoom: 1;
+}
+.email-nav{
+	background: white;
+	border: 2px solid #1abc9c;
+	border-radius: 6px;
+	padding: 6px 1px 1px 6px;
+	overflow-y: auto;
+	text-align: left;
+	margin-bottom: 15px;
+}
+.email-tag:hover {
+	background-color: #16a085;
+	padding-left: 12px;
+	padding-right: 20px;
+}
+.erro{
+	color:red;
+}
+.infor-content,.comments{
+	margin-bottom: 20px;
+	padding: 10px 20px;
+	background-color: white;
+	border: 1px solid #DDD;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-o-border-radius: 4px;
+	-khtml-border-radius: 4px;
+}
+.infor-header{
+	padding-bottom: 9px;
+	margin: 0 0 20px;
+	border-bottom: 1px solid #eee;
+}
+.infor-header h3{
+	margin-top:10px;
+}
+.infor-body{
+	padding-bottom: 9px;
+}
+hr {
+	margin: 9px 0;
+}
+dl.the-comments dd{
+	margin-left: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px dashed #CCC;
+}
+.user-comment p{
+	margin:5px 0 0 0;
+}
