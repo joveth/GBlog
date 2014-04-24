@@ -23,7 +23,7 @@
         <dl class="the-comments">
            {{range $index,$comment := .comments}}
           <dd >
-            <span class="label label-default pull-right">#{{$index}}</span>
+            <span class="label label-default pull-right">#{{pls $index 1}}</span>
             <div class="user-info">
               <a href="#"><strong>{{$comment.Email}}</strong></a> •
               {{$comment.CDate.Format "2006-01-02 15:04" }}
