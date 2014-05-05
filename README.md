@@ -1,3 +1,5 @@
+演示地址：http://gblog-revel.herokuapp.com/
+
 GBlog
 =====
 
@@ -10,7 +12,7 @@ revel:0.9.1
 mgo:r2014.03.12
 
 
-一个简单go+revel写的blog系统，暂时不知到怎么部署。后续会加上。
+一个简单go+revel写的blog系统。
 
 教程csdn地址：http://blog.csdn.net/jov123/article/category/2216585
 
