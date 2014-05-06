@@ -21,9 +21,10 @@ mgo:r2014.03.12
 https://github.com/joveth/GBlog/wiki/_pages
 
 注意：
-由于做教程的时候是开的一个新project，跟目前这个还是有一点点区别（区别并不是很大）
 
-如果有需要请到这个地址：
+由于做教程的时候是开的一个新project，这里的代码是最后整合进去的（包括部署在heroku时的修改），没有进行测试，如果发现有bug等，请联系告知。
+
+下面这个地址是我教程的最后代码：
 
 https://github.com/joveth/MyTest
 
