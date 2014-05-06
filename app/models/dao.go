@@ -15,8 +15,8 @@ type Dao struct {
 	session *mgo.Session
 }
 func NewDao() (*Dao, error){
-	//session, err := mgo.Dial("mongodb://omind:jov.omind@widmore.mongohq.com:10000/ominds")
-	session, err := mgo.Dial("localhost")
+	session, err := mgo.Dial("mongodb://omind:jov.omind@widmore.mongohq.com:10000/ominds")
+	//session, err := mgo.Dial("localhost")
 	if err != nil {
 		return nil, err
 	}

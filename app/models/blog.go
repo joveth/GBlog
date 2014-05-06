@@ -3,7 +3,6 @@ import (
 	"github.com/revel/revel"
 	"labix.org/v2/mgo/bson"
 	"time"
-	"fmt"
 )
 type Blog struct {
 	Id bson.ObjectId 
@@ -34,6 +33,18 @@ func (blog *Blog) Validate(v *revel.Validation) {
 		revel.MinSize{1},
 	)
 }
+func (blog *Blog) GetShortTitle() string{
+	if len(blog.Title)>35 {
+		return blog.Title[:35]
+	}
+	return blog.Title
+}
+func (blog *Blog) GetShortContent() string{
+	if len(blog.Subject)>200 {
+		return blog.Subject[:200]
+	}
+	return blog.Subject
+}
 func (dao *Dao) CreateBlog(blog *Blog) error {
 	blogCollection := dao.session.DB(DbName).C(BlogCollection)
 	//set the time
@@ -57,7 +68,6 @@ func (dao *Dao) FindBlogById(id string) *Blog{
 	blogCollection := dao.session.DB(DbName).C(BlogCollection)
 	blog := new(Blog)
 	query := blogCollection.Find(bson.M{"id": bson.ObjectIdHex(id)})
-	fmt.Println(query);
 	query.One(blog)
 	return blog
 }

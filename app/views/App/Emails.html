@@ -3,12 +3,10 @@
 {{template "header.html" .}}
 <div class="content">
     <div class="email-nav" >
-       <span class="email-tag">
-       	<span>jov123@163.com</span>
-       </span>
-       {{if .emails}}
+      {{if .emails}}
        {{range $email:= .emails}}
        <span class="email-tag">
+        <img src="http://www.gravatar.com/avatar/{{$email.ImgUrl}}?s=64" style="border-radius:32px"/>
         <span title="last update at:{{$email.CDate.Format "2006-01-02 15:04"}}">{{$email.Email}}</span>
        </span>
        {{end}}
@@ -18,4 +16,3 @@
   </div>
   </body>
 </html>
-

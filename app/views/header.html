@@ -7,17 +7,19 @@
     <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/public/css/styles.css">
     <link rel="shortcut icon" type="image/png" href="/public/img/fav.png">
-    <script src="/public/js/jquery-2.0.2.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/public/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-    {{range .moreStyles}}
-      <link rel="stylesheet" type="text/css" href="/public/{{.}}">
-    {{end}}
-    {{range .moreScripts}}
-      <script src="/public/{{.}}" type="text/javascript" charset="utf-8"></script>
-    {{end}}
+    <script src="/public/js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?ba984b868baf97324036ee7da8492cb5";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
   </head>
   <body>
-    <div class="container main-nav">
+<div class="container main-nav">
     <div class="top-bar">
         <div class="top-bar-inner">
           <ul class="ul-nav ">

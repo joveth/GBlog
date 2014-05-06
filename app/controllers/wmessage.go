@@ -4,7 +4,6 @@ import (
 	"github.com/revel/revel"
 	"GBlog/app/models"
 	"strings"
-	"fmt"
 )
 type WMessage struct {
 	App
@@ -15,7 +14,6 @@ func (c WMessage) Putup(message *models.Message) revel.Result {
 	message.Content = strings.TrimSpace(message.Content);
 	message.QQ = strings.TrimSpace(message.QQ);
 	message.Validate(c.Validation)
-	fmt.Println(c.Validation)
 	if c.Validation.HasErrors() {
 		c.Validation.Keep()
 		c.FlashParams()

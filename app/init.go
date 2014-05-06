@@ -19,6 +19,8 @@ func init() {
 		revel.ActionInvoker,           // Invoke the action.
 	}
 	revel.TemplateFuncs["pls"] = func(a, b int) int { return a + b }
+	revel.TemplateFuncs["mo"] = func(a, b int) bool { return a%b==0 }
+	revel.TemplateFuncs["gt"] = func(a, b int) bool { return a>b }
 	// register startup functions with OnAppStart
 	// ( order dependent )
 	// revel.OnAppStart(InitDB())

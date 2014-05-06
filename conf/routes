@@ -9,11 +9,11 @@ GET     /write                                  App.WBlog
 POST    /putblog                                WBlog.Putup
 GET     /bloginfor/:id/:rcnt                    App.BlogInfor
 POST    /docomment                 				WComment.Docomment
-POST    /putmessage                 			WMessage.Putup
 GET     /message                                App.Message
+POST    /putmessage                 			WMessage.Putup
 GET     /history                                App.History
-GET     /about                               	App.About
 GET     /email                               	App.Emails
+GET     /about                               	App.About
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
