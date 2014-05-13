@@ -3,7 +3,7 @@
 GBlog
 =====
 
-golang+revle+mgo
+golang+revel+mgo
 
 go:v1.2.1
 
